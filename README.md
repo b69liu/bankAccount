@@ -8,17 +8,17 @@ Caleb Liu
 ## File Sturcture
 ```
 ├── controller                   // Include all the endpoints and graphql resolver
-│	  ├── bankAccountController.js // Resolvers to interact with back account
-│	  └── userController.js        // Endpoints and resolvers to interact with users
+│	├── bankAccountController.js // Resolvers to interact with back account
+│	└── userController.js        // Endpoints and resolvers to interact with users
 │
 ├── model                        // Include all the database schemas
 │   ├── BankAccount.js           // schema for the bank collection
-│	  └── User.js                  // schema for the user collection
+│	└── User.js                  // schema for the user collection
 │
 │── node_modules                 // All 3rd party modules
 │
 ├── Serves                       // All Serves
-│	  └── auth.js                  // Authentication functions 	
+│	└── auth.js                  // Authentication functions 	
 │
 ├── .env                         // Contained defined environment variables
 │
