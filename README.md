@@ -36,9 +36,12 @@ Caleb Liu
 
 ```
 
+
+
 ## Instructions
 1. open the project directory
 2. run "npm install"
-3. run "npm start" to start the server
-4. Use the postman to interact with
+3. set environment variable DATABASE_CONNECT_STRING to your mongodb url
+4. run "npm start" to start the server
+5. Use the postman to interact with
 
