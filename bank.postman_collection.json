@@ -1,0 +1,176 @@
+{
+	"variables": [],
+	"info": {
+		"name": "bank",
+		"_postman_id": "9a215cee-b284-def9-f4b5-b8f893056321",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user login",
+			"request": {
+				"url": "http://localhost:3000/sign_in",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"caleb123\", \"password\":\"calebpassword\", \"verificationCode\": \"random code\"}"
+				},
+				"description": "login with username and password and verification code"
+			},
+			"response": []
+		},
+		{
+			"name": "getMyInfo",
+			"request": {
+				"url": "http://localhost:3000/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTJmMTczNTllYWEzM2I1M2RhYWY0NDAiLCJpYXQiOjE2MzA0Nzk5NDgsImV4cCI6MTYzMzA3MTk0OH0.9q02pb_Qr7UtYPQCXBJhARVhLLyw9bHuLeN00szFOpE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query{ findUser{ user_id firstname lastname email username phone } }\"\n}\n"
+				},
+				"description": "get my user info"
+			},
+			"response": []
+		},
+		{
+			"name": "findMyAccounts",
+			"request": {
+				"url": "http://localhost:3000/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTJmMTczNTllYWEzM2I1M2RhYWY0NDAiLCJpYXQiOjE2MzA0Nzk5NDgsImV4cCI6MTYzMzA3MTk0OH0.9q02pb_Qr7UtYPQCXBJhARVhLLyw9bHuLeN00szFOpE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query{ findUser{ user_id firstname lastname email username phone } }\"\n}\n"
+				},
+				"description": "query all my accounts"
+			},
+			"response": []
+		},
+		{
+			"name": "createAccount",
+			"request": {
+				"url": "http://localhost:3000/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTJmMTczNTllYWEzM2I1M2RhYWY0NDAiLCJpYXQiOjE2MzA0Nzk5NDgsImV4cCI6MTYzMzA3MTk0OH0.9q02pb_Qr7UtYPQCXBJhARVhLLyw9bHuLeN00szFOpE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"mutation createAccount($accountName: String!, $accountNumber: String!){ createAccount(accountName: $accountName, accountNumber: $accountNumber){ success message } }\",\n    \"variables\": { \n    \t\"accountName\":\"myFirstAccount\",\n    \t\"accountNumber\":\"1234567890123\"\n    }\n}\n"
+				},
+				"description": "create a bank account"
+			},
+			"response": []
+		},
+		{
+			"name": "deposite",
+			"request": {
+				"url": "http://localhost:3000/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTJmMTczNTllYWEzM2I1M2RhYWY0NDAiLCJpYXQiOjE2MzA0Nzk5NDgsImV4cCI6MTYzMzA3MTk0OH0.9q02pb_Qr7UtYPQCXBJhARVhLLyw9bHuLeN00szFOpE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"mutation depositeMoney($accountId: String!, $amount: Int!){ deposite(accountId: $accountId, amount: $amount){ success message } }\",\n    \"variables\": { \n    \t\"accountId\":\"612f362df5dcf4034179f29f\",\n    \t\"amount\": 5000\n    }\n}\n"
+				},
+				"description": "deposite money to an account"
+			},
+			"response": []
+		},
+		{
+			"name": "withdraw",
+			"request": {
+				"url": "http://localhost:3000/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTJmMTczNTllYWEzM2I1M2RhYWY0NDAiLCJpYXQiOjE2MzA0Nzk5NDgsImV4cCI6MTYzMzA3MTk0OH0.9q02pb_Qr7UtYPQCXBJhARVhLLyw9bHuLeN00szFOpE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"mutation withdrawMoney($accountId: String!, $amount: Int!){ withdraw(accountId: $accountId, amount: $amount){ success message } }\",\n    \"variables\": { \n    \t\"accountId\":\"612f362df5dcf4034179f29f\",\n    \t\"amount\": 1300\n    }\n}\n"
+				},
+				"description": "withdraw money from an account"
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"url": "http://localhost:3000/sign_up",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"firstname\":\"Caleb\", \"lastname\":\"Liu\", \"email\":\"liuboljhh@gmail.com\", \"username\": \"caleb123\",\"phone\":\"5556661234\", \"password\":\"calebpassword\"}"
+				},
+				"description": "register a user"
+			},
+			"response": []
+		}
+	]
+}
